@@ -1,0 +1,26 @@
+    1  cd /fs/lustre/scratch/lkuhn
+    2  mkdir CTA200_2022
+    3  cd CTA200_2022
+    4  mkdir assignment_1
+    5  vi README.md
+    6  cd ../../../../../../home/murray
+    7  find . -name Hello_world.py
+    8  find . -name Hello_world.c
+    9  scp /home/murray/Hello_world.py /fs/lustre/scratch/lkuhn/CTA200_2022/assignment_1
+   10  scp /home/murray/Hello_world.c /fs/lustre/scratch/lkuhn/CTA200_2022/assignment_1
+   11  cd ../../fs/lustre/scratch/lkuhn 
+   12  mv Hello_world.c Hello_world_kuhn.c
+   13  mv Hello_world.py Hello_world_kuhn.py
+   14  module load gcc/5.4.0
+   15  gcc Hello_world_kuhn.c -o Hello_world.x
+   16  ./Hello_world.x   
+   17  module load python
+   18  python Hello_world_kuhn.py
+   19  vim Hello_world_kuhn.py
+   20  vim Hello_world_kuhn.c
+   21  python Hello_world_kuhn.py
+   22  gcc Hello_world_kuhn.c -o Hello_world.x
+   23  ./Hello_world.x
+   24  ./Hello_world.x > output_c.txt
+   25  python Hello_world_kuhn.py > output_python.txt
+   26  history 26 > history.txt
